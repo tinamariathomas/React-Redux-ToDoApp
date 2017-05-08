@@ -2,16 +2,7 @@ import { VisibilityFilters, SET_VISIBILITY_FILTER, ADD_TO_DO } from './../action
 
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
-  todos: [{
-    id:1,
-    text:"Hi",
-    completed:true
-  },{
-    id:2,
-    text:"Hello",
-    completed:false
-  }
-  ]
+  todos: []
 };
 
 function todoApp(state, action) {
@@ -25,7 +16,7 @@ function todoApp(state, action) {
       });
     case ADD_TO_DO:
       return Object.assign({}, state,{
-        todos:[...state.todos,{text:action.text, completed:false}]
+        todos:[...state.todos,{id: action.id, text:action.text, completed:false}]
       });
     default:
       return state
