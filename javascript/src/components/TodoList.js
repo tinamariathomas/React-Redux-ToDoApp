@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-import Todo from './todo'
+import React, { PropTypes } from 'react';
+import Todo from './ToDo';
 
 export default class ToDoList extends React.Component {
   render() {
@@ -9,11 +9,11 @@ export default class ToDoList extends React.Component {
           <Todo
             key={todo.id}
             {...todo}
-            onClick = {()=>{this.props.onTodoClick(todo.id)}}
-          />
+            onClick = {() => { this.props.onTodoClick(todo.id); }}
+          />,
         )}
       </ul>
-    )
+    );
   }
 }
 

@@ -7,24 +7,24 @@ let AddTodo = ({ dispatch }) => {
 
   return (
     <div>
-      <form onSubmit={e => {
+      <form onSubmit={(e) => {
         e.preventDefault();
         if (!input.value.trim()) {
-          return
+          return;
         }
         dispatch(addNewToDo(input.value));
-        input.value = ''
+        input.value = '';
       }}>
-        <input ref={node => {
-          input = node
+        <input ref={(node) => {
+          input = node;
         }} />
         <button type="submit">
           Add Todo
         </button>
       </form>
     </div>
-  )
-}
-AddTodo = connect()(AddTodo)
+  );
+};
+AddTodo = connect()(AddTodo);
 
-export default AddTodo
+export default AddTodo;
