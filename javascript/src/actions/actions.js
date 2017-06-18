@@ -1,5 +1,6 @@
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const ADD_TO_DO = 'ADD_TO_DO';
+export const TOGGLE_TO_DO = 'TOGGLE_TO_DO';
 
 var todoCount = 0;
 
@@ -15,4 +16,8 @@ export function setVisibilityFilter(filter) {
 
 export function addNewToDo(text){
   return{ id: todoCount++, type: ADD_TO_DO, text}
+}
+
+export function toggleTodo(id){
+  return { id:id, type:TOGGLE_TO_DO}
 }

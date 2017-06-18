@@ -1,4 +1,4 @@
-import { VisibilityFilters, SET_VISIBILITY_FILTER, ADD_TO_DO } from './../actions/actions';
+import { VisibilityFilters, SET_VISIBILITY_FILTER, ADD_TO_DO, TOGGLE_TO_DO } from './../actions/actions';
 
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
@@ -17,6 +17,12 @@ function todoApp(state, action) {
     case ADD_TO_DO:
       return Object.assign({}, state,{
         todos:[...state.todos,{id: action.id, text:action.text, completed:false}]
+      });
+    case TOGGLE_TO_DO:
+      return Object.assign({}, state, {
+        todos: state.todos.map( todo => {
+          return (todo.id === action.id) ?  Object.assign({}, todo, {completed: !todo.completed}): todo;
+        })
       });
     default:
       return state
