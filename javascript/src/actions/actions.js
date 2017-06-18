@@ -15,7 +15,8 @@ export function setVisibilityFilter(filter) {
 }
 
 export function addNewToDo(text) {
-  return { id: todoCount++, type: ADD_TO_DO, text };
+  todoCount += 1;
+  return { id: todoCount, type: ADD_TO_DO, text };
 }
 
 export function toggleTodo(id) {
